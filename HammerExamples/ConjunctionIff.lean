@@ -61,6 +61,7 @@ theorem aux {x y : ℝ} (h : x ^ 2 + y ^ 2 = 0) : x = 0 :=
 -- hammer: looped for 5 minutes without timing out
 -- hammer {disableAesop := true}: failed (external prover could not solve)
 example (x y : ℝ) : x ^ 2 + y ^ 2 = 0 ↔ x = 0 ∧ y = 0 := by
+  
   constructor
   -- hammer {disableAesop := true} [add_comm]: success
   duper [*, add_comm, aux, sq_eq_zero_iff] {preprocessing := full}
